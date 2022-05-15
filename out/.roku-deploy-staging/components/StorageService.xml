@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- '***************************************************
+'** Intive Roku Framework
+'**
+'** Intive, Marek Jarosz, 28/02/2022
+'**
+'** Component for working with persistence storage
+'***************************************************
+-->
+<component name="StorageService" extends="Task">
+  <interface>
+    <!--////////// FIELDS //////////-->
+      <!-- <field> data - {assocarray} input data for the storage command to be executed, it should be the following format:
+        {     
+          action: "put"                                    ' - "put", "get" "delete", "deleteSection", "clearRegistry"       
+          sectionName: "MySection"                         ' - section name for identifying from another
+          keys: {
+            "MyData": "test"                               ' - some data, but not for 'deleteSection'
+          }                                
+        }
+      -->
+    <field id="data" type="assocarray" />
+
+      <!-- <field> RESULT - {assocarray} output data that is set when service returns data, will have following format:
+        {
+          action: "put"                                    ' - commandName that was executed  
+          result: true                                     ' - result of the command will be invalid, boolean, string
+          success: true                                    ' - result status will be true or false (boolean)        
+        }
+      -->
+    <field id="result" type="assocarray" />
+  </interface>
+
+  <script type="text/brightscript" uri="./StorageService.brs"/>
+  <script type="text/brightscript" uri="pkg:/source/utils/typeUtils.brs"/>
+</component>
